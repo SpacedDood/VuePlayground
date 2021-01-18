@@ -1,4 +1,4 @@
-# cr
+# Doods Playground
 
 ## Project setup
 ```
