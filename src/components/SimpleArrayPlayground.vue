@@ -113,4 +113,8 @@ export default {
 
 <!-- TODO
 Figure out a better way to hide/show windows management
+Clean up your component folders and add some structure
+Add some upload photo management
+Do a barrel roll
+Add comments to the code
 -->
