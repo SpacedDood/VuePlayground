@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <HelloWorld msg="Doods First Vue Components"/>
+    <FormBuilder />
     <SearchArea v-if="showPlayground"/>
     <SimpleArrayPlayground />
   </div>
@@ -10,12 +11,14 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import SimpleArrayPlayground from './components/SimpleArrayPlayground.vue'
+import FormBuilder from './components/FormBuilder/FormBuilder.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    SimpleArrayPlayground
+    SimpleArrayPlayground,
+    FormBuilder
   },
   data() {
     return {
