@@ -2,7 +2,7 @@
   <div class="cameraArea">
     <h2>This is the Camera Area!</h2>
     <p>
-      The First of many component collections I will be working on.
+      This component is to dabble with Photo Manipulation. First will be upload. But lets see what data we receive first.
     </p>
 
     <input type="file" v-on:change="previewFiles($event.target)"/>

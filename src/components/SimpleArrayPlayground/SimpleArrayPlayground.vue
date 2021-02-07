@@ -3,7 +3,8 @@
 
     <h1>Simple Array Playground</h1>
 
-    <UploadPhoto/>
+    <p>This is a playground where you can create search and view and arrays content.</p>
+
 
     <PrettyView v-if="prettyViewNo!=null" v-bind:dataSet="theArray[prettyViewNo]"/>
 
@@ -26,7 +27,6 @@ import SearchArea from './SearchArea.vue'
 import CreateArea from './CreateArea/CreateArea.vue'
 import DataPreview from './DataPreview.vue'
 import PrettyView from './PrettyView/PrettyView.vue'
-import UploadPhoto from "./UploadPhoto/UploadPhoto.vue"
 
 
 export default {
@@ -35,8 +35,7 @@ export default {
     SearchArea,
     CreateArea,
     DataPreview,
-    PrettyView,
-    UploadPhoto
+    PrettyView
   },
   data() {
     return {

@@ -1,7 +1,7 @@
 <template>
   <div class="formBuilder">
     <h2>
-      Create New Minion
+      EZ FormBuilder
     </h2>
     <div class="formSection">
 
@@ -12,7 +12,7 @@
         <SingleText FieldName="email" FieldLabel="Email of Minion:" v-model="inputValue" v-on:updateForm="updateSingleText" />
 
 
-        <CheckBox FieldName="working" FieldLabel="Working?:" v-model="inputValue" v-on:updateForm="updateCheckBox" />
+        <CheckBox FieldName="active" FieldLabel="Working?:" v-model="inputValue" v-on:updateForm="updateCheckBox" />
 
         <SingleText FieldName="job" FieldLabel="Job of Minion:" v-model="inputValue" v-on:updateForm="updateSingleText" />
 
@@ -27,9 +27,11 @@
 
 <script>
 
+
 import SingleText from "./FormBits/SingleText.vue"
 import SubmitButton from "./FormBits/SubmitButton.vue"
 import CheckBox from "./FormBits/CheckBox.vue"
+import axios from 'axios';
 
 export default {
   name: 'FormBuilder',
@@ -94,11 +96,21 @@ export default {
       });
 
       var JSONData = JSON.stringify(submissionData)
+
+      var DataPacket = {data: JSONData}
+
       //ship off said array
+      //console.log("startShipping", JSONData, JSON.parse(JSONData))
+      this.shipIt(DataPacket)
 
-      console.log(JSONData)
-
-      console.log(JSON.parse(JSONData))
+    },
+    shipIt(dataToShip) {
+      console.log("DataReceived", dataToShip)
+      axios.post( 'http://localhost:3000/minions', dataToShip )
+      .then(data => {
+        console.log({ message: 'Request received!', data })
+      })
+      .catch(err => console.log(err))
 
     }
   }
@@ -108,13 +120,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.formBuilder {
-  position: relative;
-  border: 2px solid;
-}
+  .formBuilder {
+    position: relative;
+    border: 2px solid;
+  }
 
-.formSection {
-  text-align: left;
-}
+  .formSection {
+    text-align: left;
+  }
 
 </style>
